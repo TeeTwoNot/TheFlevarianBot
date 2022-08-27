@@ -5,7 +5,6 @@ import asyncio
 import datetime
 import random
 import aiohttp
-import pretty_help
 
 from discord import Guild, activity, Member, TextChannel, User
 
