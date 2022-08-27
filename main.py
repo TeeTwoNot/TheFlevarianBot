@@ -14,7 +14,6 @@ from discord.utils import get
 
 from datetime import datetime
 from itertools import cycle
-from pretty_help import DefaultMenu, PrettyHelp
 
 from webserver import keep_alive
 
@@ -24,11 +23,9 @@ intents.members = True
 
 players = {}
 
-menu = DefaultMenu(page_left="◀", page_right="▶", remove="❌")
-ending_note = "The Bambenian Bot Help Menu" 
-no_category="All Commands"
 
-bot = commands.Bot(command_prefix='-', help_command=PrettyHelp(menu=menu, ending_note=ending_note, no_category=no_category, show_index=False, sort_commands=True, dm_help=True), intents=intents)
+
+bot = commands.Bot(command_prefix='-', intents=intents)
 
 amount = 0
 
