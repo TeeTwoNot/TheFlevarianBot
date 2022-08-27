@@ -12,7 +12,7 @@ app = Flask('')
 
 def home():
 
-    return f"-------------------\nTimeBot is online!\n-------------------"
+    return f"-------------------\nThe Bambenian Bot is online!\n-------------------"
 
 
 
