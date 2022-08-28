@@ -17,6 +17,7 @@ from itertools import cycle
 
 from webserver import keep_alive
 
+from os import system
 
 intents = discord.Intents.all()
 intents.members = True
@@ -228,4 +229,9 @@ keep_alive()
 
 TOKEN = os.environ.get("DISCORD_TOKEN")
 
-bot.run(TOKEN)
+try:
+    bot.run(TOKEN)
+except discord.errors.HTTPException:
+    print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
+    system("python restarter.py")
+    system('kill 1')
