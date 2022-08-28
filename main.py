@@ -56,7 +56,7 @@ async def on_command_error(ctx, error):
 async def status_task():
     while True:
         await bot.change_presence(activity=discord.Game(name="MPAMPHS IS MY HERO"))
-        asyncio.sleep(120)
+        await asyncio.sleep(120)
         await bot.change_presence(activity=discord.Game(name="MPAMPHS FOR LIFE"))
 
 
