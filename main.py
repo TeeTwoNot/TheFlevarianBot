@@ -15,8 +15,6 @@ from discord.utils import get
 from datetime import datetime
 from itertools import cycle
 
-from webserver import keep_alive
-
 from os import system
 
 intents = discord.Intents.all()
@@ -24,7 +22,10 @@ intents.members = True
 
 players = {}
 
+from dotenv import load_dotenv
 
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = commands.Bot(command_prefix='-', intents=intents)
 
@@ -225,13 +226,4 @@ async def map(ctx, *, message=None):
         await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1013131462503051344/1661619314901.jpg")
 
 
-keep_alive()
-
-TOKEN = os.environ.get("DISCORD_TOKEN")
-
-try:
-    bot.run(TOKEN)
-except discord.errors.HTTPException:
-    print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
-    system("python restarter.py")
-    system('kill 1')
+bot.run(TOKEN)
