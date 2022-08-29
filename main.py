@@ -214,16 +214,22 @@ async def say(ctx, *, message=None):
 
 
 #FLAG COMMAND
-@bot.command(help="Says what you say")
-async def flag(ctx, *, message=None):
+@bot.command(help="Shows the flag of Bambenia")
+async def flag(ctx):
         await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1013131110781304952/RWDT_Flag.png")
         await ctx.channel.send("So goddamn beautiful")
 
 
 #MAP COMMAND
-@bot.command(help="Says what you say")
-async def map(ctx, *, message=None):
+@bot.command(help="Shows the map of Bambenia")
+async def map(ctx):
         await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1013131462503051344/1661619314901.jpg")
+
+
+#MOTTO COMMAND
+@bot.command(help="All hail Mpamphs")
+async def motto(ctx):
+    await ctx.channel.send("All hail Mpamphs.")
 
 
 bot.run(TOKEN)
