@@ -5,6 +5,7 @@ import asyncio
 import datetime
 import random
 import aiohttp
+import requests
 
 from discord import Guild, activity, Member, TextChannel, User
 
@@ -223,13 +224,26 @@ async def flag(ctx):
 #MAP COMMAND
 @bot.command(help="Shows the map of Bambenia")
 async def map(ctx):
-        await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1013131462503051344/1661619314901.jpg")
+        await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1015588848249618512/1662203309973.jpg")
 
 
 #MOTTO COMMAND
 @bot.command(help="All hail Mpamphs")
 async def motto(ctx):
     await ctx.channel.send("All hail Mpamphs.")
+
+
+@bot.command(help="Lists the exchange rate of the Bambenian Chip")
+async def exchangerate(ctx):
+    rate1 = (random.randint(995, 1100))
+    rate2 = (random.randint(995, 1100))
+    rate3 = (random.randint(995, 1100))
+
+    embed = discord.Embed(title="Bambenian Chip (BCP) Exchange Rates", description="")
+    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BCP")
+    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BCP")
+    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BCP")
+    await ctx.channel.send(embed=embed)
 
 
 bot.run(TOKEN)
