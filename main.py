@@ -216,7 +216,7 @@ async def say(ctx, *, message=None):
 #FLAG COMMAND
 @bot.command(help="Shows the flag of Bambenia")
 async def flag(ctx):
-        await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1013131110781304952/RWDT_Flag.png")
+        await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1015588492056727582/Flag_of_Bambenia.png")
         await ctx.channel.send("So goddamn beautiful")
 
 
