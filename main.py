@@ -240,9 +240,9 @@ async def exchangerate(ctx):
     rate3 = (random.randint(995, 1100))
 
     embed = discord.Embed(title="Bambenian Chip (BCP) Exchange Rates", description="")
-    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BCP")
-    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BCP")
-    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BCP")
+    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BCP", inline=True)
+    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BCP", inline=True)
+    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BCP", inline=True)
     await ctx.channel.send(embed=embed)
 
 
