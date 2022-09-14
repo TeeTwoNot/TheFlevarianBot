@@ -236,8 +236,8 @@ async def motto(ctx):
 @bot.command(help="Lists the exchange rate of the Bambenian Chip")
 async def exchangerate(ctx):
     rate1 = (random.randint(95, 110))
-    rate2 = (random.randint(95, f{rate1}))
-    rate3 = (random.randint(f{rate1}, f{rate2}))
+    rate2 = (random.randint(95, rate1))
+    rate3 = (random.randint(rate1, rate2))
 
     embed = discord.Embed(title="Bambenian Chip (BCP) Exchange Rates", description="")
     embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BCP", inline=False)
