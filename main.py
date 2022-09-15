@@ -233,17 +233,22 @@ async def motto(ctx):
     await ctx.channel.send("All hail Mpamphs.")
 
 
-@bot.command(help="Lists the exchange rate of the Bambenian Chip")
+@bot.command(help="Lists the exchange rate of the Bambenian Odol")
 async def exchangerate(ctx):
     rate1 = (random.randint(95, 110))
     rate2 = (random.randint(95, 110))
     rate3 = (random.randint(95, 110))
 
-    embed = discord.Embed(title="Bambenian Chip (BCP) Exchange Rates", description="")
-    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BCP", inline=False)
-    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BCP", inline=False)
-    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BCP", inline=False)
+    embed = discord.Embed(title="Bambenian Odol (BDL) Exchange Rates", description="")
+    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BDL", inline=False)
+    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BDL", inline=False)
+    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BDL", inline=False)
     await ctx.channel.send(embed=embed)
+    
+#DEMCHECK COMMAND
+@bot.command(help="Democracy Check")
+async def demcheck(ctx):
+    await ctx.channel.send("Our democracy is the most bestest in da whole world")
 
 
 bot.run(TOKEN)
