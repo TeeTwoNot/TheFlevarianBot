@@ -239,10 +239,10 @@ async def exchangerate(ctx):
     rate2 = (random.randint(95, 110))
     rate3 = (random.randint(95, 110))
 
-    embed = discord.Embed(title="Bambenian Odol (BDL) Exchange Rates", description="")
-    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BDL", inline=False)
-    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BDL", inline=False)
-    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BDL", inline=False)
+    embed = discord.Embed(title="Bambenian Obol (BOB) Exchange Rates", description="")
+    embed.add_field(name="US Dollar", value=f"1 USD -> {rate1} BOB", inline=False)
+    embed.add_field(name="Euro", value=f"1 EUR -> {rate2} BOB", inline=False)
+    embed.add_field(name="Pound Sterling", value=f"1 GBP -> {rate3} BOB", inline=False)
     await ctx.channel.send(embed=embed)
     
 #DEMCHECK COMMAND
