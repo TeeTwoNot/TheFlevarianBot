@@ -1,21 +1,12 @@
 import os
 import discord
-import time
 import asyncio
 import datetime
 import random
-import aiohttp
-import requests
 
-from discord import Guild, activity, Member, TextChannel, User
-
-from discord.ext import commands, tasks
-from discord.ext.commands import Bot, has_permissions, has_role, has_any_role, MissingPermissions, BadArgument
-from discord.utils import get
-
+from discord.ext import commands
+from discord.ext.commands import has_permissions, MissingPermissions
 from datetime import datetime
-from itertools import cycle
-
 from os import system
 
 intents = discord.Intents.all()
