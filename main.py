@@ -6,7 +6,6 @@ import asyncio
 import sys
 import platform
 import datetime
-import requests
 from typing import Final
 
 #FROM DISCORD
