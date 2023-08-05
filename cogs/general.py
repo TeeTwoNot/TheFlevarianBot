@@ -176,7 +176,25 @@ class General(commands.Cog):
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
+    
 
+    #MAP COMMAND
+    @app_commands.command(name="map", description="Shows the map of Flevaria")
+    @app_commands.checks.cooldown(1, 5.0)
+    async def map(self, interaction: discord.Interaction):
+        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1137177381635895447/2023-07-13-18-28-53-660.jpg')
+
+
+    @map.error
+    async def map_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
+        if isinstance(error, app_commands.CommandOnCooldown):
+            embed = discord.Embed(
+                title="Slow down!",
+                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                color=0xb40000
+            )
+            await interaction.response.send_message(embed=embed, ephemeral=True)
+    
 
 async def setup(bot):
     await bot.add_cog(General(bot))
