@@ -111,13 +111,13 @@ async def ping(ctx):
 
 #FUN COMMAND 1
 
-@bot.command(help="THE WARHAMMER SHALL DROP")
-async def warhammer(ctx):
-    await ctx.channel.send("ONCE THE WARHAMMER DROPS...")
-    await asyncio.sleep(1)
-    await ctx.channel.send("...YOU SHALL BE FLATTENED")
-    await asyncio.sleep(1)
-    await ctx.channel.send("-random flat earther")
+#@bot.command(help="THE WARHAMMER SHALL DROP")
+#async def warhammer(ctx):
+#    await ctx.channel.send("ONCE THE WARHAMMER DROPS...")
+#    await asyncio.sleep(1)
+#    await ctx.channel.send("...YOU SHALL BE FLATTENED")
+#    await asyncio.sleep(1)
+#    await ctx.channel.send("-random flat earther")
 
 
 #KICK COMMAND
@@ -185,24 +185,24 @@ async def serverinfo(ctx):
 
 #STUPID METER COMMAND
 
-@bot.command(help="Measures how stupid you (or a specified user) are!")
-async def stupid(ctx, member : discord.Member = None):
-    percentage = (random.randint(0, 100))
-
-    if member == None:
-        message = await ctx.channel.send("Calculating...")
-        await asyncio.sleep(3)
-        await message.edit(content=f"You are {percentage}% stupid!")
-
-    if member == bot.user:
-        message = await ctx.channel.send("Calculating...")
-        await asyncio.sleep(3)
-        await message.edit(content=f"HOW DARE YOU CALL ME STUPID")
-
-    elif member == member:
-        message = await ctx.channel.send("Calculating...")
-        await asyncio.sleep(3)
-        await message.edit(content=f"{member.mention} is {percentage}% stupid!")
+#@bot.command(help="Measures how stupid you (or a specified user) are!")
+#async def stupid(ctx, member : discord.Member = None):
+#    percentage = (random.randint(0, 100))
+#
+#    if member == None:
+#        message = await ctx.channel.send("Calculating...")
+#        await asyncio.sleep(3)
+#        await message.edit(content=f"You are {percentage}% stupid!")
+#
+#    if member == bot.user:
+#        message = await ctx.channel.send("Calculating...")
+#        await asyncio.sleep(3)
+#        await message.edit(content=f"HOW DARE YOU CALL ME STUPID")
+#
+#    elif member == member:
+#        message = await ctx.channel.send("Calculating...")
+#        await asyncio.sleep(3)
+#        await message.edit(content=f"{member.mention} is {percentage}% stupid!")
 
 
 #SAY COMMAND
@@ -215,25 +215,25 @@ async def say(ctx, *, message=None):
 
 
 #FLAG COMMAND
-@bot.command(help="Shows the flag of Bambenia")
+@bot.command(help="Shows the flag of Bambenia.")
 async def flag(ctx):
         await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1015588492056727582/Flag_of_Bambenia.png")
         await ctx.channel.send("So goddamn beautiful")
 
 
 #MAP COMMAND
-@bot.command(help="Shows the map of Bambenia")
+@bot.command(help="Shows the map of Bambenia.")
 async def map(ctx):
-        await ctx.channel.send("https://cdn.discordapp.com/attachments/1010331746920824944/1015588848249618512/1662203309973.jpg")
+        await ctx.channel.send("https://imgur.com/wWc5fX1")
 
 
 #MOTTO COMMAND
-@bot.command(help="All hail Mpamphs")
+@bot.command(help="All hail Babis.")
 async def motto(ctx):
-    await ctx.channel.send("All hail Mpamphs.")
+    await ctx.channel.send("All hail Babis.")
 
 
-@bot.command(help="Lists the exchange rate of the Bambenian Odol")
+@bot.command(help="Lists the exchange rate of the Bambenian Odol.")
 async def exchangerate(ctx):
     rate1 = (random.randint(95, 110))
     rate2 = (random.randint(95, 110))
@@ -248,7 +248,7 @@ async def exchangerate(ctx):
 #DEMCHECK COMMAND
 @bot.command(help="Democracy Check")
 async def demcheck(ctx):
-    await ctx.channel.send("Our democracy is the most bestest in da whole world")
+    await ctx.channel.send("Our democracy is the most bestest in da whole world.")
 
 
 bot.run(TOKEN)
