@@ -131,7 +131,7 @@ async def status_task():
     while True:
         await bot.change_presence(activity=discord.Game(name="Prefix: /"))
         await asyncio.sleep(120)
-        await bot.change_presence(activity=discord.Game(name="All hair Babis!"))
+        await bot.change_presence(activity=discord.Game(name="All hail Babis!"))
         await asyncio.sleep(120)
         await bot.change_presence(activity=discord.Game(name="Visit Flevaria sometime!"))
         await asyncio.sleep(120)
