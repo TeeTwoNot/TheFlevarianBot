@@ -1,9 +1,8 @@
 import discord
-import datetime
+import time
 
 from discord import app_commands
 from discord.ext import commands
-import datetime
 
 from discord.app_commands import AppCommandError, Choice
 
@@ -28,9 +27,11 @@ class General(commands.Cog):
     @ping.error
     async def ping_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
             embed = discord.Embed(
                 title="Slow down!",
-                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                description=f"You can use this command again <t:{totaltime}:R>",
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -87,9 +88,11 @@ class General(commands.Cog):
     @serverinfo.error
     async def serverinfo_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
             embed = discord.Embed(
                 title="Slow down!",
-                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                description=f"You can use this command again <t:{totaltime}:R>",
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -134,9 +137,11 @@ class General(commands.Cog):
     @whomadethis.error
     async def socials_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
             embed = discord.Embed(
                 title="Slow down!",
-                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                description=f"You can use this command again <t:{totaltime}:R>",
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -152,9 +157,11 @@ class General(commands.Cog):
     @bam.error
     async def bam_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
             embed = discord.Embed(
                 title="Slow down!",
-                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                description=f"You can use this command again <t:{totaltime}:R>",
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -170,9 +177,11 @@ class General(commands.Cog):
     @flag.error
     async def flag_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
             embed = discord.Embed(
                 title="Slow down!",
-                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                description=f"You can use this command again <t:{totaltime}:R>",
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -188,9 +197,53 @@ class General(commands.Cog):
     @map.error
     async def map_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
             embed = discord.Embed(
                 title="Slow down!",
-                description="You can use this command again in {0} seconds!".format(round(error.retry_after, 1)),
+                description=f"You can use this command again <t:{totaltime}:R>",
+                color=0xb40000
+            )
+            await interaction.response.send_message(embed=embed, ephemeral=True)
+    
+
+    #EXCHANGE COMMAND
+    @app_commands.command(name="exchange", description="Shows the exchange rates of FOB")
+    @app_commands.checks.cooldown(1, 5.0)
+    @app_commands.choices(currency = [
+        Choice(name = 'EUR -> FOB', value = "eur_fob"),
+        Choice(name = 'FOB -> EUR', value = "fob_eur")
+        ]
+    )
+    async def exchange(self, interaction: discord.Interaction, currency: str, amount: int):
+        if currency == "eur_fob":
+            converted = amount * 20
+            embed = discord.Embed(
+                title="Exchange Rate (EUR -> FOB)",
+                description='',
+                color=0xb40000
+                )
+            embed.add_field(name=f"{amount} = {converted}")
+        
+        elif currency == "fob_eur":
+            converted = amount / 20
+            embed = discord.Embed(
+                title="Exchange Rate (FOB -> EUR)",
+                description='',
+                color=0xb40000
+                )
+            embed.add_field(name=f"{amount} = {converted}")
+        await interaction.response.send_message(embed=embed)
+
+
+    @exchange.error
+    async def exchange_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
+        if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
+            embed = discord.Embed(
+                title="Slow down!",
+                description=f"You can use this command again <t:{totaltime}:R>",
                 color=0xb40000
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
