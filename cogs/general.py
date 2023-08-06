@@ -224,6 +224,7 @@ class General(commands.Cog):
                 color=0xb40000
                 )
             embed.add_field(name=f"{amount} = {converted}")
+            await interaction.response.send_message(embed=embed)
         
         elif currency == "fob_eur":
             converted = amount / 20
@@ -233,7 +234,7 @@ class General(commands.Cog):
                 color=0xb40000
                 )
             embed.add_field(name=f"{amount} = {converted}")
-        await interaction.response.send_message(embed=embed)
+            await interaction.response.send_message(embed=embed)
 
 
     @exchange.error
