@@ -215,34 +215,29 @@ class General(commands.Cog):
         Choice(name = 'FOB -> EUR', value = "fob_eur")
         ]
     )
-    async def exchange(self, interaction: discord.Interaction, currency: str, amount: str):
-        amount_dot = amount.replace(',', '.')
-        if ".0" in amount_dot:
-            amount_conv = int(amount_dot)
-        else:
-            amount_conv = float(amount_dot)
+    async def exchange(self, interaction: discord.Interaction, currency: str, amount: float):
         if currency == "eur_fob":
-            converted = amount_conv * 20
+            converted = amount * 20
             embed = discord.Embed(
                 title="Exchange Rate (EUR -> FOB)",
                 description='',
                 color=0xb40000
                 )
             if converted == 1:
-                embed.add_field(name="", value=f"{amount_conv} Euro = {converted} Flevarian Obol")
+                embed.add_field(name="", value=f"{amount} Euro = {converted} Flevarian Obol")
             else:
-                embed.add_field(name="", value=f"{amount_conv} Euro = {converted} Flevarian Obols")
+                embed.add_field(name="", value=f"{amount} Euro = {converted} Flevarian Obols")
         elif currency == "fob_eur":
-            converted = amount_conv / 20
+            converted = amount / 20
             embed = discord.Embed(
                 title="Exchange Rate (FOB -> EUR)",
                 description='',
                 color=0xb40000
                 )
-            if amount_conv == 1:
-                embed.add_field(name="", value=f"{amount_conv} Flevarian Obol = {converted} Euro")
+            if amount == 1:
+                embed.add_field(name="", value=f"{amount} Flevarian Obol = {converted} Euro")
             else:
-                embed.add_field(name="", value=f"{amount_conv} Flevarian Obols = {converted} Euro")
+                embed.add_field(name="", value=f"{amount} Flevarian Obols = {converted} Euro")
         await interaction.response.send_message(embed=embed)
 
 
