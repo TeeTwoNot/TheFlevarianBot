@@ -215,9 +215,12 @@ class General(commands.Cog):
         Choice(name = 'FOB -> EUR', value = "fob_eur")
         ]
     )
-    async def exchange(self, interaction: discord.Interaction, currency: str, amount: float):
-        amount_dot = str(amount).replace(',', '.')
-        amount_conv = float(amount_dot)
+    async def exchange(self, interaction: discord.Interaction, currency: str, amount: str):
+        amount_dot = amount.replace(',', '.')
+        if ".0" in amount_dot:
+            amount_conv = int(amount_dot)
+        else:
+            amount_conv = float(amount_dot)
         if currency == "eur_fob":
             converted = amount_conv * 20
             embed = discord.Embed(
