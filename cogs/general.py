@@ -223,8 +223,10 @@ class General(commands.Cog):
                 description='',
                 color=0xb40000
                 )
-            embed.add_field(name=f"{amount} = {converted}", value='')
-        
+            if converted == 1:
+                embed.add_field(name="", value=f"{amount} Euro = {converted} Flevarian Obol")
+            else:
+                embed.add_field(name="", value=f"{amount} Euro = {converted} Flevarian Obols")
         elif currency == "fob_eur":
             converted = amount / 20
             embed = discord.Embed(
@@ -232,7 +234,10 @@ class General(commands.Cog):
                 description='',
                 color=0xb40000
                 )
-            embed.add_field(name=f"{amount} = {converted}", value='')
+            if amount == 1:
+                embed.add_field(name="", value=f"{amount} Flevarian Obol = {converted} Euro")
+            else:
+                embed.add_field(name="", value=f"{amount} Flevarian Obols = {converted} Euro")
         await interaction.response.send_message(embed=embed)
 
 
