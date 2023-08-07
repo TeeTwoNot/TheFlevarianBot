@@ -208,7 +208,7 @@ class General(commands.Cog):
     
 
     #EXCHANGE COMMAND
-    @app_commands.command(name="exchange", description="Shows the exchange rates of FOB")
+    @app_commands.command(name="exchange", description="Shows the exchange rates of the Flevarian Obol")
     @app_commands.checks.cooldown(1, 5.0)
     @app_commands.choices(currency = [
         Choice(name = 'EUR -> FOB', value = "eur_fob"),
@@ -243,6 +243,70 @@ class General(commands.Cog):
 
     @exchange.error
     async def exchange_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
+        if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
+            embed = discord.Embed(
+                title="Slow down!",
+                description=f"You can use this command again <t:{totaltime}:R>",
+                color=0xb40000
+            )
+            await interaction.response.send_message(embed=embed, ephemeral=True)
+    
+
+    #MOTTO COMMAND
+    @app_commands.command(name="motto", description="All hail Babis!")
+    @app_commands.checks.cooldown(1, 5.0)
+    async def motto(self, interaction: discord.Interaction):
+        await interaction.response.send_message('All hail Babis!')
+
+
+    @motto.error
+    async def motto_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
+        if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
+            embed = discord.Embed(
+                title="Slow down!",
+                description=f"You can use this command again <t:{totaltime}:R>",
+                color=0xb40000
+            )
+            await interaction.response.send_message(embed=embed, ephemeral=True)
+    
+
+    #DEMCHECK COMMAND
+    @app_commands.command(name="demcheck", description="All hail Babis!")
+    @app_commands.checks.cooldown(1, 5.0)
+    async def demcheck(self, interaction: discord.Interaction):
+        await interaction.response.send_message('"Our democracy is the most bestest in da whole world."\n> Democracy Inspector')
+        await interaction.followup.send('https://cdn.discordapp.com/attachments/871684957133738014/1137862354848202813/VideoCapture_20221106-145808.jpg')
+
+
+    @demcheck.error
+    async def demcheck_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
+        if isinstance(error, app_commands.CommandOnCooldown):
+            unixtime = int(time.time())
+            totaltime = unixtime + int(error.retry_after)
+            embed = discord.Embed(
+                title="Slow down!",
+                description=f"You can use this command again <t:{totaltime}:R>",
+                color=0xb40000
+            )
+            await interaction.response.send_message(embed=embed, ephemeral=True)
+    
+
+    #SAY COMMAND
+    @app_commands.command(name="say", description="All hail Babis!")
+    @app_commands.checks.cooldown(1, 5.0)
+    async def say(self, interaction: discord.Interaction, say: str):
+        if say == None:
+            await interaction.response.send_message("You gotta say something so I can say it back dude")
+        else:
+            await interaction.response.send_message(say)
+
+
+    @say.error
+    async def say_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
         if isinstance(error, app_commands.CommandOnCooldown):
             unixtime = int(time.time())
             totaltime = unixtime + int(error.retry_after)
