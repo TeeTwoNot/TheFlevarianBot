@@ -258,7 +258,7 @@ class General(commands.Cog):
     @app_commands.command(name="motto", description="All hail Babis!")
     @app_commands.checks.cooldown(1, 5.0)
     async def motto(self, interaction: discord.Interaction):
-        await interaction.response.send_message('All hail Babis!')
+        await interaction.response.send_message('All hail Babis! <:babis:1013400927421599845>')
 
 
     @motto.error
