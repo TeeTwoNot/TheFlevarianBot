@@ -278,7 +278,9 @@ class General(commands.Cog):
     @app_commands.command(name="demcheck", description="All hail Babis!")
     @app_commands.checks.cooldown(1, 5.0)
     async def demcheck(self, interaction: discord.Interaction):
-        await interaction.response.send_message('"Our democracy is the most bestest in da whole world."\n> Democracy Inspector\n\nhttps://cdn.discordapp.com/attachments/871684957133738014/1137862354848202813/VideoCapture_20221106-145808.jpg')
+        await interaction.response.send_message('"Our democracy is the most bestest in da whole world."\n> Democracy Inspector')
+        await interaction.followup.send('https://cdn.discordapp.com/attachments/871684957133738014/1137862354848202813/VideoCapture_20221106-145808.jpg')
+
 
     @demcheck.error
     async def demcheck_error(self, interaction: discord.Interaction, error: AppCommandError) -> None:
