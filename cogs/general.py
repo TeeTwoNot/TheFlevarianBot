@@ -298,11 +298,11 @@ class General(commands.Cog):
     #SAY COMMAND
     @app_commands.command(name="say", description="All hail Babis!")
     @app_commands.checks.cooldown(1, 5.0)
-    async def say(self, interaction: discord.Interaction, say: str):
-        if say == None:
+    async def say(self, interaction: discord.Interaction, what: str = None):
+        if what == None:
             await interaction.response.send_message("You gotta say something so I can say it back dude")
         else:
-            await interaction.response.send_message(say)
+            await interaction.response.send_message(what)
 
 
     @say.error
