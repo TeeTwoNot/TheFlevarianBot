@@ -104,32 +104,28 @@ class General(commands.Cog):
     async def whomadethis(self, interaction: discord.Interaction) -> None:
         user = await self.bot.fetch_user(640145015800332328)
         pfp = user.avatar
-        embed = discord.Embed(title="TimelessOn15Hz made this!", description="Check out my socials!", color=0xb40000)
+        embed = discord.Embed(title="TeeTwoNot made this!", description="Check out my socials!", color=0xb40000)
         embed.set_thumbnail(url=pfp)
 
         embed.add_field(
             name="YouTube", 
-            value="[Timeless](https://www.youtube.com/@timelesson15hz)" #Alternative: https://www.youtube.com/channel/UC_E94MhLA5QDCefWXLqW33A
+            value="[Timeless](https://www.youtube.com/@teetwonot)" #Alternative: https://www.youtube.com/channel/UC_E94MhLA5QDCefWXLqW33A
             )
         embed.add_field(
             name="TikTok", 
-            value="[TimelessOn15Hz](https://tiktok.com/@timelesson15hz)"
+            value="[TimelessOn15Hz](https://tiktok.com/@teetwonot)"
             )
         embed.add_field(
             name="Instagram", 
-            value="[TimelessOn15Hz](https://instagram.com/timelesson15hz)"
+            value="[TimelessOn15Hz](https://instagram.com/teetwonot)"
             )
         embed.add_field(
             name="Twitch", 
-            value="[TimelessOn15Hz](https://twitch.tv/timelesson15hz)"
+            value="[TimelessOn15Hz](https://twitch.tv/teetwonot)"
             )
         embed.add_field(
             name="Website/Portfolio", 
-            value="[ChrTsk](https://chrtsk.com)"
-            )
-        embed.add_field(
-            name="Discord Server", 
-            value="[Timeless28](https://discord.gg/DsE6CFB6VK)"
+            value="[ChrTsk](https://teetwonot.com)"
             )
         await interaction.response.send_message(embed=embed)
 
@@ -171,7 +167,7 @@ class General(commands.Cog):
     @app_commands.command(name="flag", description="Shows the flag of Flevaria")
     @app_commands.checks.cooldown(1, 5.0)
     async def flag(self, interaction: discord.Interaction):
-        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1137176962671054920/Flag_of_Bambenia.png')
+        await interaction.response.send_message('https://cdn.discordapp.com/attachments/807692974816886878/1149027815740686427/Flevarian_Flag.png')
 
 
     @flag.error
@@ -191,7 +187,7 @@ class General(commands.Cog):
     @app_commands.command(name="map", description="Shows the map of Flevaria")
     @app_commands.checks.cooldown(1, 5.0)
     async def map(self, interaction: discord.Interaction):
-        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1137177381635895447/2023-07-13-18-28-53-660.jpg')
+        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1141045878866595860/Map_of_Flevaria.jpg')
 
 
     @map.error
