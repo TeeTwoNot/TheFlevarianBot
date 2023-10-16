@@ -171,7 +171,7 @@ class General(commands.Cog):
     @app_commands.command(name="flag", description="Shows the flag of Flevaria")
     @app_commands.checks.cooldown(1, 5.0)
     async def flag(self, interaction: discord.Interaction):
-        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1137176962671054920/Flag_of_Bambenia.png')
+        await interaction.response.send_message('https://cdn.discordapp.com/attachments/807692974816886878/1149027815740686427/Flevarian_Flag.png')
 
 
     @flag.error
@@ -191,7 +191,7 @@ class General(commands.Cog):
     @app_commands.command(name="map", description="Shows the map of Flevaria")
     @app_commands.checks.cooldown(1, 5.0)
     async def map(self, interaction: discord.Interaction):
-        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1137177381635895447/2023-07-13-18-28-53-660.jpg')
+        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1141045878866595860/Map_of_Flevaria.jpg')
 
 
     @map.error
