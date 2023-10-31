@@ -191,7 +191,7 @@ class General(commands.Cog):
     @app_commands.command(name="map", description="Shows the map of Flevaria")
     @app_commands.checks.cooldown(1, 5.0)
     async def map(self, interaction: discord.Interaction):
-        await interaction.response.send_message('https://cdn.discordapp.com/attachments/1010331746920824944/1141045878866595860/Map_of_Flevaria.jpg')
+        await interaction.response.send_message('https://cdn.discordapp.com/attachments/807692974816886878/1159611918198263938/2023-10-06-00-59-56-092.jpg')
 
 
     @map.error
@@ -298,11 +298,8 @@ class General(commands.Cog):
     #SAY COMMAND
     @app_commands.command(name="say", description="All hail Babis!")
     @app_commands.checks.cooldown(1, 5.0)
-    async def say(self, interaction: discord.Interaction, what: str = None):
-        if what == None:
-            await interaction.response.send_message("You gotta say something so I can say it back dude")
-        else:
-            await interaction.response.send_message(what)
+    async def say(self, interaction: discord.Interaction, what: str):
+        await interaction.response.send_message(what)
 
 
     @say.error
